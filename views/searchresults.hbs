@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ContentMiller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="center">ContentMiller</h1>
+    <h2 class="center">A content farming tool for the digital landscape.</h2>
+
+    <form action="http://localhost:3000/search" method="get" class="center">
+        <label>Search:</label>
+        <input type="text" name="search_term" placeholder="See the top comments for the most popular YouTube creators." />
+    </form>
+
+    <ul>
+    {{#each items}}
+        <li class="flex">
+            <img id="imageBorder" src="{{this.snippet.thumbnails.medium.url}}">
+                <div class="itemInfo">
+                <p class="bold">{{this.snippet.title}}</p>
+                <span class="small">Upload Date: {{this.snippet.publishTime}}</span>
+                <h3>{{this.snippet.channelTitle}}</h3>
+            </div>
+        </li>
+    {{/each}}
+</ul>
+</body>
+</html>
